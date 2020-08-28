@@ -11,6 +11,13 @@ function App() {
     .catch(err => {
       console.log(err)
     })
+  axios.get('/api/users')
+    .then(result => {
+      console.log(result.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
   return (
     <div className="App">
       <header className="App-header">

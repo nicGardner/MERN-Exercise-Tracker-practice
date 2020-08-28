@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 
-const exerciseRouter = require('./backend/routes/exercises');
+const exerciseRouter = require('./backend/routes/exercises')
+const usersRouter = require('./backend/routes/users')
 
 require('dotenv').config();
 
@@ -21,7 +22,8 @@ app.listen(port, () => {
     console.log(`server is running on port ${port}`);
 });
 
-app.use('/api/exercises', exerciseRouter);
+app.use('/api/exercises', exerciseRouter)
+app.use('/api/users', usersRouter)
 
 const path = require('path')
 // Serve static files from the React frontend app
