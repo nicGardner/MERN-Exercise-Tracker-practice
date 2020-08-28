@@ -4,7 +4,7 @@ import axios from 'axios';
 import './App.css';
 
 function App() {
-  axios.get('/exercises')
+  axios.get('/api/exercises')
     .then(result => {
       console.log(result.data)
     })
