@@ -1,41 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import axios from 'axios';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
+import Navbar from "./components/navbar";
+import ExerciseList from "./components/exercise-list";
+import CreateExercise from "./components/create-exercise";
+import CreateUser from "./components/create-user";
+
+//define a react component called App
 function App() {
-  axios.get('/api/exercises')
-    .then(result => {
-      console.log(result.data)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-  axios.get('/api/users')
-    .then(result => {
-      console.log(result.data)
-    })
-    .catch(err => {
-      console.log(err)
-    })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload. zoop
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    {/**when the following routes are engaged, passes the following react components to the react router*/},
+    <Router>
+      <div className="container">
+        <Navbar />
+        <br/>
+        <Route path="/" exact component={ExerciseList} />
+        <Route path="/create" component={CreateExercise} />
+        <Route path="/user" component={CreateUser} />
+      </div>
+    </Router>
   );
 }
 
+//export App so it can be used by index.js
 export default App;
+
